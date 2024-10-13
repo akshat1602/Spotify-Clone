@@ -1,21 +1,22 @@
 import type { Metadata } from "next";
 
 import "./globals.css";
-import {Figtree} from 'next/font/google'
+import { Figtree } from "next/font/google";
 import Sidebar from "@/components/sidebar";
+import SupabaseProvider from "@/providers/SupabaseProvider";
 
-const font = Figtree ({ subsets : ['latin'] })
+const font = Figtree({ subsets: ["latin"] });
 
-const geistSans = ({
+const geistSans = {
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
-});
-const geistMono = ({
+};
+const geistMono = {
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
-});
+};
 
 export const metadata: Metadata = {
   title: "Spotify Clone",
@@ -24,15 +25,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{                          
+}: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
-      <body
-        className= {font.className}
-      >
-        <Sidebar>{children}</Sidebar>
+      <body className={font.className}>
+        <SupabaseProvider>
+          <Sidebar>{children}</Sidebar>
+        </SupabaseProvider>
       </body>
     </html>
   );
