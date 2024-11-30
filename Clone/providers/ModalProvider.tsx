@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 
 import AuthModal from "@/components/AuthModal";
+import UploadModal from "@/components/UploadModal";
+import { FaUpLong } from "react-icons/fa6";
 
 const ModalProvider = () => {
     const [isMounted, setIsMounted] = useState(false);
@@ -18,6 +20,7 @@ const ModalProvider = () => {
     return (
         <>
      <AuthModal/>
+     <UploadModal/>
         </>
     );
 }
