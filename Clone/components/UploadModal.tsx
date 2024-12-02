@@ -6,7 +6,7 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { useState } from "react";
 import Input from "./Input";
 import Button from "./Button";
-import toast from "react-hot-toast";
+import {toast} from "react-hot-toast";
 import { useUser } from "@/hooks/useUser";
 import uniqid from "uniqid";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
@@ -22,8 +22,8 @@ const uploadModal = () => {
 
   const { register, handleSubmit, reset } = useForm<FieldValues>({
     defaultValues: {
-      author: "",
-      title: "",
+      author: '',
+      title: '',
       song: null,
       image: null,
     },
@@ -87,18 +87,18 @@ const uploadModal = () => {
                   const {
                     error: supabaseError
                   } = await supabaseClient
-                     .from('songs')
+                     .from("songs")
                      .insert ({
-                        user_id: user,
+                        user_id: user.id,
                         title: values.title,
                         author: values.author,
                         image_path: imageData.path,
-                        song_path: songData.path,
+                        song_path: songData.path
                      });
                      
                      if(supabaseError) {
                         setIsLoading(false);
-                        return toast.error("something went wrong");
+                        return toast.error("supabaseError.message");
                      }
 
                      router.refresh();

@@ -7,13 +7,13 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { TbPlaylist } from "react-icons/tb";
 
 const Library = () => {
-    const AuthModal = useAuthModal();
+    const authModal = useAuthModal();
     const uploadModal = useUploadModal();
     const {user} = useUser();
 
     const onclick = () => {
         if(!user){
-            return AuthModal.onOpen();
+            return authModal.onOpen();
         }
 
         //TODO : CHECK FOR SUBSCRIPTION
