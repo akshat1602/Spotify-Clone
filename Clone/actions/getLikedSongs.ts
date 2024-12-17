@@ -14,7 +14,7 @@ const{
 } = await supabase.auth.getSession();
 
 const {data, error} = await supabase
-  .from('songs')
+  .from('liked songs')
   .select('*, songs(*)')
   .eq('user_id', session?.user?.id)
   .order('created_at', {ascending: false});
