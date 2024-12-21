@@ -10,7 +10,7 @@ import { postData } from "@/libs/helpers";
 
 const AccountContext = () => {
     const router = useRouter();
-    const {isLoading, subscription, user} = useUser();
+    const {isLoading, user} = useUser();
 
     const [loading, setLoading] = useState(false);
  
@@ -34,29 +34,6 @@ const AccountContext = () => {
         }
         setLoading(false);
     }
-    return (
-        <div className="mb-7 px-6">
-            {!subscription && (
-                <div className="flex flex-col gap-y-4">
-                    <p>No active plan.</p>
-                </div>
-            )}
-            {subscription && (
-                <div className="flex flex-col gap-y-4">
-                 <p>
-                    You are currently on the <b>{subscription?.prices?.products?.name}</b>plan.
-                </p>
-                 <Button
-                 disabled={loading || isLoading}
-                 className="w-[300px]"
-                 onClick={redirectToCustomerPortal}
-                 >
-                 Open Customer Portal
-                 </Button>
-                </div>
-            )}
-        </div>
-    );
 }
 
 export default AccountContext;
