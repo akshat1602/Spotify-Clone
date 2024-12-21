@@ -37,7 +37,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const userSongs = await getSongsByUseid();
+  const userSongs = await getSongsByUserid();
   const products = await getActiveProductsWithPrices();
 
   return (

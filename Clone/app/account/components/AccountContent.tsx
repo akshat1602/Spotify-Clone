@@ -3,7 +3,6 @@
 import { useRouter } from "next/router";
 
 import { useUser } from "@/hooks/useUser";
-import useSubscribeModal from "@/hooks/useSubscribeModal";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import Button from "@/components/Button";
@@ -11,7 +10,6 @@ import { postData } from "@/libs/helpers";
 
 const AccountContext = () => {
     const router = useRouter();
-    const SubscribeModal = useSubscribeModal();
     const {isLoading, subscription, user} = useUser();
 
     const [loading, setLoading] = useState(false);
@@ -41,12 +39,6 @@ const AccountContext = () => {
             {!subscription && (
                 <div className="flex flex-col gap-y-4">
                     <p>No active plan.</p>
-                    <Button
-                    onClick={SubscribeModal.onOpen}
-                    className="w-[300px]"
-                    >
-                      Subscribe
-                    </Button>
                 </div>
             )}
             {subscription && (
