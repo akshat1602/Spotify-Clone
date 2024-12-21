@@ -1,3 +1,5 @@
+//layout
+
 import type { Metadata } from "next";
 
 import "./globals.css";
@@ -7,7 +9,7 @@ import SupabaseProvider from "@/providers/SupabaseProvider";
 import UserProvider from "@/providers/UserProvider";
 import ModalProvider from "@/providers/ModalProvider";
 import ToasterProvider from "@/providers/ToasterProvider";
-import getSongsByUserId from "@/actions/getSongsByUserId";
+import getSongsByUserid from "@/actions/getSongsByUserid";
 import Player from "@/components/Player";
 import getActiveProductsWithPrices from "@/actions/getActiveProductsWithPrices";
 
@@ -35,7 +37,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const userSongs = await getSongsByUserId();
+  const userSongs = await getSongsByUserid();
   const products = await getActiveProductsWithPrices();
 
   return (
