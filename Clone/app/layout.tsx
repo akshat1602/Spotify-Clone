@@ -7,7 +7,7 @@ import SupabaseProvider from "@/providers/SupabaseProvider";
 import UserProvider from "@/providers/UserProvider";
 import ModalProvider from "@/providers/ModalProvider";
 import ToasterProvider from "@/providers/ToasterProvider";
-import getSongsByUserId from "@/actions/getSongsByUserId";
+import getSongsByUserId from "@/actions/getSongsByUserid";
 import Player from "@/components/Player";
 import getActiveProductsWithPrices from "@/actions/getActiveProductsWithPrices";
 
